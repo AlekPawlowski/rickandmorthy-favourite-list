@@ -1,14 +1,28 @@
 import React from "react";
+import CharacterLabel from "./CharacterLabel";
 
-export const CharacterList = ({ list }) => {
+const CharacterList = ({ list }) => {
     const { info, results } = list;
     console.log(info, results, list);
     return (
-        <ul>
-            {results.map((name, index) => {
-                return <li key={index}>{name.name}</li>;
-            })}
-        </ul>
+        <table>
+            <thead>
+                <tr>
+                    <td>img</td>
+                    <td>name</td>
+                    <td>status</td>
+                    <td>species</td>
+                    <td>Gender</td>
+                </tr>
+            </thead>
+            <tbody>
+                {results.map((singleData, index) => {
+                    return (
+                        <CharacterLabel listLabel={singleData} key={index} />
+                    );
+                })}
+            </tbody>
+        </table>
     );
 };
 
