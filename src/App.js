@@ -1,35 +1,22 @@
 import { useState, useEffect } from "react";
-import CharacterList from "./components/CharacterList.jsx";
+import ChoseCategory from "./components/ChoseCategory.jsx";
 
 function App() {
-    const [error, setError] = useState(null);
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [items, setItems] = useState([]);
-    console.log(isLoaded);
-    useEffect(() => {
-        fetch("https://rickandmortyapi.com/api/character/")
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    setItems(result);
-                    setIsLoaded(true);
-                },
-                (error) => {
-                    setError(error);
-                    setIsLoaded(false);
-                }
-            );
-    }, []);
+    const category = ["characters", "locations", "episodes"];
+    return (
+        <React.StrictMode>
 
-    if (error) {
-        return <div>Error: {error.error}</div>;
-    } else if (!isLoaded) {
-        return <div>Loading...</div>;
-    } else if (isLoaded) {
-        return (
-            <CharacterList list={items} />
-        );
-    }
+            <h1>choose category</h1>
+            <div>
+                {category.map((singleData, index) => {
+                    return (
+                        <CharacterLabel listLabel={singleData} key={index} />
+                    );
+                })
+                }
+            </div>
+        </React.StrictMode>
+    )
 }
 
 export default App;
