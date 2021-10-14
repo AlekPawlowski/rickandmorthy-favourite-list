@@ -6,7 +6,7 @@ const TableInit = ({ importType }) => {
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]);
     const fetchUrl = `https://rickandmortyapi.com/api/${importType}/`;
-    console.log(fetchUrl, importType);
+    console.log(fetchUrl, importType, isLoaded);
 
     useEffect(() => {
         fetch(fetchUrl)

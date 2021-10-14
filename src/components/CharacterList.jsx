@@ -3,7 +3,7 @@ import CharacterLabel from "./CharacterLabel";
 
 const CharacterList = ({ list }) => {
     const { info, results } = list;
-    console.log(info, results, list);
+    // console.log(info, results, list);
     return (
         <table>
             <thead>
