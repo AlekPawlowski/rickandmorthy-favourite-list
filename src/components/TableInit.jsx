@@ -2,11 +2,10 @@ import { useState, useEffect } from "react";
 import CharacterList from "./CharacterList.jsx";
 
 const TableInit = ({ importType }) => {
+    const fetchUrl = `https://rickandmortyapi.com/api/${importType}/`;
     const [error, setError] = useState(null);
     const [isLoaded = false, setIsLoaded] = useState(false);
-    const [items, setItems] = useState([]);
-    const fetchUrl = `https://rickandmortyapi.com/api/${importType}/`;
-    console.log(fetchUrl, importType, isLoaded);
+    const [items = [], setItems] = useState([]);
 
     //use effect dosent work on rerun
     useEffect(() => {
@@ -14,18 +13,16 @@ const TableInit = ({ importType }) => {
             .then((res) => res.json())
             .then(
                 (result) => {
-                    console.log(isLoaded);
                     setItems(result);
                     setIsLoaded(true);
                 },
                 (error) => {
-                    console.log(error);
                     setError(error);
                     setIsLoaded(false);
                 }
             );
     }, []);
-
+    console.log("items", items);
     if (error) {
         return <div>Error: {error.error}</div>;
     } else if (!isLoaded) {
