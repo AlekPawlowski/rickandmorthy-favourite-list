@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import CharacterList from "./CharacterList.jsx";
+import ListRender from "./ListRender.jsx";
 
 const TableInit = ({ importType }) => {
     const fetchUrl = `https://rickandmortyapi.com/api/${importType}/`;
@@ -21,15 +21,14 @@ const TableInit = ({ importType }) => {
                     setIsLoaded(false);
                 }
             );
-        return () => console.log("unmounting...");
     }, [importType]);
-    console.log("items", items);
+
     if (error) {
         return <div>Error: {error.error}</div>;
     } else if (!isLoaded) {
         return <div>Loading...</div>;
     } else if (isLoaded) {
-        return <CharacterList list={items} />;
+        return <ListRender list={items} />;
     }
 };
 
