@@ -21,7 +21,8 @@ const TableInit = ({ importType }) => {
                     setIsLoaded(false);
                 }
             );
-    }, []);
+        return () => console.log("unmounting...");
+    }, [importType]);
     console.log("items", items);
     if (error) {
         return <div>Error: {error.error}</div>;
