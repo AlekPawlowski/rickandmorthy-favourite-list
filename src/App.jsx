@@ -3,7 +3,8 @@ import ChoseCategory from "./components/ChoseCategory.jsx";
 
 function App() {
     const [chosedCategory, setChosedCategory] = useState([]);
-    const category = ["character", "location", "episode"];
+    // const category = ["character", "location", "episode"];
+    const category = ["character"];
     console.log(chosedCategory);
     return (
         <div>
