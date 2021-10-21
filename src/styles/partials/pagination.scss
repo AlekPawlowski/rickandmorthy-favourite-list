@@ -1,0 +1,45 @@
+$buttonSize: 30px;
+$buttonColor: #191963;
+
+.pagination{
+    position: relative;
+    margin: 0 auto;
+    max-width: $maxWidth;
+    display: grid;
+    grid-template-columns: repeat(12, 2fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    button{
+        border: 1px solid $buttonColor;
+        background-color: transparent;
+        color: black;
+        border-radius: 50%;
+        width: $buttonSize;
+        height: $buttonSize;
+        transition: .5s all;
+        cursor: pointer;
+        &:hover,
+        &.active{
+            background-color: $buttonColor;
+            border-color: white;
+            color: white;
+            transform: scale(1.1);
+        }
+    }
+    .arrow{
+        position: absolute;
+        top: 50%;
+        cursor: pointer;
+    }
+    .arrow_prev{
+        left: 0%;
+    }
+    .arrow_next{
+        right: 0;
+    }
+}
+

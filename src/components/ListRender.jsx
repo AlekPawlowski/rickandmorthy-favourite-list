@@ -28,12 +28,24 @@ const ListRender = ({ list, type }) => {
                                     <td className={"img"}>
                                         <img src={ele.image}></img>
                                     </td>
-                                    <td>{ele.id}</td>
-                                    <td>{ele.name}</td>
-                                    <td>{ele.status}</td>
-                                    <td>{ele.species}</td>
-                                    <td>{ele.episode.length}</td>
-                                    <td>{ele.location.name}</td>
+                                    <td>
+                                        <span>{ele.id}</span>
+                                    </td>
+                                    <td>
+                                        <span>{ele.name}</span>
+                                    </td>
+                                    <td>
+                                        <span>{ele.status}</span>
+                                    </td>
+                                    <td>
+                                        <span>{ele.species}</span>
+                                    </td>
+                                    <td>
+                                        <span>{ele.episode.length}</span>
+                                    </td>
+                                    <td>
+                                        <span>{ele.location.name}</span>
+                                    </td>
                                     <td> no</td>
                                 </tr>
                             );

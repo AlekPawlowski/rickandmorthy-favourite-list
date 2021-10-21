@@ -31,18 +31,22 @@ const TableInit = ({ importType }) => {
         return (
             <React.Fragment>
                 <ListRender list={items} type={importType} />
+
                 <div className="pagination">
+                    <div className="arrow arrow_prev">prev</div>
                     {Array.from(Array(items.info.pages), (e, i) => {
                         return (
                             <button
                                 key={i + 1}
                                 page={i + 1}
                                 onClick={() => setInitPage(i + 1)}
+                                className={initPage == i + 1 ? "active" : ""}
                             >
                                 {i + 1}
                             </button>
                         );
                     })}
+                    <div className="arrow arrow_next"> next </div>
                 </div>
             </React.Fragment>
         );
