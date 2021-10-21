@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import ListRender from "./ListRender.jsx";
 
 const TableInit = ({ importType }) => {
-    const [initPage = 1, setInitPage] = useState(0);
+    const [initPage, setInitPage] = useState(1);
     const [error, setError] = useState(null);
-    const [isLoaded = false, setIsLoaded] = useState(false);
-    const [items = [], setItems] = useState([]);
-    console.log(initPage, "ss");
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [items, setItems] = useState([]);
+    console.log(initPage);
     const fetchUrl = `https://rickandmortyapi.com/api/${importType}/?page=${initPage}`;
     useEffect(() => {
         fetch(fetchUrl)
