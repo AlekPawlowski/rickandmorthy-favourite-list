@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import ListRender from "./ListRender.jsx";
 
 const TableInit = ({ importType }) => {
-    const fetchUrl = `https://rickandmortyapi.com/api/${importType}/`;
+    const [initPage = 1, setInitPage] = useState(0);
     const [error, setError] = useState(null);
     const [isLoaded = false, setIsLoaded] = useState(false);
     const [items = [], setItems] = useState([]);
-
-    //use effect dosent work on rerun
+    console.log(initPage, "ss");
+    const fetchUrl = `https://rickandmortyapi.com/api/${importType}/?page=${initPage}`;
     useEffect(() => {
         fetch(fetchUrl)
             .then((res) => res.json())
@@ -21,14 +21,31 @@ const TableInit = ({ importType }) => {
                     setIsLoaded(false);
                 }
             );
-    }, [importType]);
+    }, [initPage]);
 
     if (error) {
         return <div>Error: {error.error}</div>;
     } else if (!isLoaded) {
         return <div>Loading...</div>;
     } else if (isLoaded) {
-        return <ListRender list={items} />;
+        return (
+            <React.Fragment>
+                <ListRender list={items} type={importType} />
+                <div className="pagination">
+                    {Array.from(Array(items.info.pages), (e, i) => {
+                        return (
+                            <button
+                                key={i + 1}
+                                page={i + 1}
+                                onClick={() => setInitPage(i + 1)}
+                            >
+                                {i + 1}
+                            </button>
+                        );
+                    })}
+                </div>
+            </React.Fragment>
+        );
     }
 };
 
