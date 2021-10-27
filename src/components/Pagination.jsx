@@ -3,7 +3,7 @@ import React from "react";
 const Pagination = ({ pages, currentPage, setState }) => {
     return (
         <div className="pagination">
-            <div className="arrow arrow_prev">prev</div>
+            <button className="arrow arrow_prev">prev</button>
             {Array.from(Array(pages), (e, i) => {
                 return (
                     <button
@@ -16,7 +16,7 @@ const Pagination = ({ pages, currentPage, setState }) => {
                     </button>
                 );
             })}
-            <div className="arrow arrow_next"> next </div>
+            <button className="arrow arrow_next"> next </button>
         </div>
     );
 };

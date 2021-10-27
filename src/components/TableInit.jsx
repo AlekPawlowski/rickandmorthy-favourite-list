@@ -3,7 +3,7 @@ import ListRender from "./ListRender.jsx";
 import Pagination from "./Pagination.jsx";
 
 const TableInit = ({ importType }) => {
-    const [currentPage, setCurrentPage] = useState(1);
+    const [currentPage, setCurrentPage] = useState(0);
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]);
