@@ -2,7 +2,7 @@ import React from "react";
 import AddToFavourite from "./AddToFavourite";
 
 const ListRender = ({ list, type }) => {
-    const { info, results } = list;
+    const { results } = list;
     if (type == "character") {
         return (
             <div>
