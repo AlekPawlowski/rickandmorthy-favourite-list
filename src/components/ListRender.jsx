@@ -1,4 +1,5 @@
 import React from "react";
+import AddToFavourite from "./AddToFavourite";
 
 const ListRender = ({ list, type }) => {
     const { info, results } = list;
@@ -46,7 +47,9 @@ const ListRender = ({ list, type }) => {
                                     <td>
                                         <span>{ele.location.name}</span>
                                     </td>
-                                    <td> no</td>
+                                    <td>
+                                        <AddToFavourite value={ele} />
+                                    </td>
                                 </tr>
                             );
                         })}
